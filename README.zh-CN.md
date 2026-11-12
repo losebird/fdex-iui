@@ -1,8 +1,8 @@
-# IUI
+# fdex-iui
 
 [English](./README.md) · **简体中文**
 
-**IUI**（`@losebird/iui`）是 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（**dsh**）插件。当回答更适合做成页面时——图表、地图、行程、比价板、小工具——模型可以输出自由 HTML/CSS/JS，IUI 在聊天气泡内的隔离沙箱 iframe 中挂载。
+**fdex-iui**（`@losebird/iui`）是 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（**dsh**）插件。当回答更适合做成页面时——图表、地图、行程、比价板、小工具——模型可以输出自由 HTML/CSS/JS，fdex-iui 在聊天气泡内的隔离沙箱 iframe 中挂载。
 
 ---
 
@@ -28,17 +28,17 @@
 
 ## 安装
 
-需要 PATH 上有 `dsh`（或用 `npx @deepseek-ai/dsh`）、Node `^22.19 || >=24`，以及可用的 web profile。**不必先 clone。** 请装 [Releases](https://github.com/losebird/IUI/releases) 里打好的 **tarball**，不要用 `github:losebird/IUI`（那会 clone 整仓源码，进度条常停在 `downloaded 0`）。
+需要 PATH 上有 `dsh`（或用 `npx @deepseek-ai/dsh`）、Node `^22.19 || >=24`，以及可用的 web profile。**不必先 clone。** 请装 [Releases](https://github.com/losebird/fdex-iui/releases) 里打好的 **tarball**，不要用 `github:losebird/fdex-iui`（那会 clone 整仓源码，进度条常停在 `downloaded 0`）。
 
 ```bash
-dsh plugin --profile <profile> add https://github.com/losebird/IUI/releases/latest/download/losebird-iui.tgz
+dsh plugin --profile <profile> add https://github.com/losebird/fdex-iui/releases/latest/download/losebird-iui.tgz
 dsh web
 ```
 
 把 `<profile>` 换成你实际用的（常见是 `web`）。没有全局 `dsh` 时：
 
 ```bash
-npx @deepseek-ai/dsh plugin --profile <profile> add https://github.com/losebird/IUI/releases/latest/download/losebird-iui.tgz
+npx @deepseek-ai/dsh plugin --profile <profile> add https://github.com/losebird/fdex-iui/releases/latest/download/losebird-iui.tgz
 npx @deepseek-ai/dsh web
 ```
 
@@ -58,7 +58,7 @@ npx @deepseek-ai/dsh web
 
 1. 新开会话，选一只有指令遵循力的模型。
 2. 问需要「像页面」的内容，例如：*「做一个加州海岸三日行程页，带地图和景点卡。」*
-3. 模型闭合 `` ```iui-html `` 围栏后，IUI 会在气泡里挂出可交互页面——而不是残留代码块。
+3. 模型闭合 `` ```iui-html `` 围栏后，fdex-iui 会在气泡里挂出可交互页面——而不是残留代码块。
 
 普通文字回答仍是文字；只有围栏会变成页面。
 
