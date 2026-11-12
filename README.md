@@ -1,8 +1,8 @@
-# IUI
+# fdex-iui
 
 **English** · [简体中文](./README.zh-CN.md)
 
-**IUI** (`@losebird/iui`) is a [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (**dsh**) plugin. When a reply should look like a page — charts, maps, itineraries, pricing boards, small tools — the model can emit a free-form HTML/CSS/JS document and IUI mounts it inside the chat bubble in an isolated sandbox iframe.
+**fdex-iui** (`@losebird/iui`) is a [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (**dsh**) plugin. When a reply should look like a page — charts, maps, itineraries, pricing boards, small tools — the model can emit a free-form HTML/CSS/JS document and fdex-iui mounts it inside the chat bubble in an isolated sandbox iframe.
 
 ---
 
@@ -28,17 +28,17 @@
 
 ## Install
 
-Needs `dsh` on your PATH (or `npx @deepseek-ai/dsh`), Node `^22.19 || >=24`, and a web profile. You do **not** need to clone this repo first. Install the **prebuilt tarball** from [Releases](https://github.com/losebird/IUI/releases) — not `github:losebird/IUI` (that clones the whole source tree and can sit on `downloaded 0` for a long time).
+Needs `dsh` on your PATH (or `npx @deepseek-ai/dsh`), Node `^22.19 || >=24`, and a web profile. You do **not** need to clone this repo first. Install the **prebuilt tarball** from [Releases](https://github.com/losebird/fdex-iui/releases) — not `github:losebird/fdex-iui` (that clones the whole source tree and can sit on `downloaded 0` for a long time).
 
 ```bash
-dsh plugin --profile <profile> add https://github.com/losebird/IUI/releases/latest/download/losebird-iui.tgz
+dsh plugin --profile <profile> add https://github.com/losebird/fdex-iui/releases/latest/download/losebird-iui.tgz
 dsh web
 ```
 
 Replace `<profile>` with yours (often `web`). Without a global `dsh`:
 
 ```bash
-npx @deepseek-ai/dsh plugin --profile <profile> add https://github.com/losebird/IUI/releases/latest/download/losebird-iui.tgz
+npx @deepseek-ai/dsh plugin --profile <profile> add https://github.com/losebird/fdex-iui/releases/latest/download/losebird-iui.tgz
 npx @deepseek-ai/dsh web
 ```
 
@@ -58,7 +58,7 @@ Full install notes: [docs/INSTALL.md](./docs/INSTALL.md)
 
 1. Start a new chat and pick a model that follows instructions well.
 2. Ask for something that should look like a page, for example: *“Build a three-day coastal trip page with a map and stop cards.”*
-3. When the model closes an `` ```iui-html `` fence, IUI mounts an interactive page in the bubble — not a leftover code block.
+3. When the model closes an `` ```iui-html `` fence, fdex-iui mounts an interactive page in the bubble — not a leftover code block.
 
 Plain text replies stay plain text. Only fences become pages.
 
