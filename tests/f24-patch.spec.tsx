@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
 // F24: ```iui-patch — local edits merged into the previous page, versions v1·v2·v3.
+import { RESIDENT_PROMPT_BUDGET } from './prompt-budget.ts'
 import { act, cleanup, render } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import type { ReactElement } from 'react'
@@ -227,6 +228,6 @@ describe('F24 plugin', () => {
   it('system prompt documents iui-patch within budget', () => {
     const text = buildGenuiSectionText()
     expect(text).toContain('```iui-patch')
-    expect(text.length).toBeLessThan(3600)
+    expect(text.length).toBeLessThan(RESIDENT_PROMPT_BUDGET)
   })
 })

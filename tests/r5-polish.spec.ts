@@ -1,3 +1,4 @@
+import { RESIDENT_PROMPT_BUDGET } from './prompt-budget.ts'
 import { describe, expect, it } from 'vitest'
 import { buildHtmlSandboxSrcdoc, HTML_SANDBOX_STARTERS } from '../src/shared/html-sandbox.ts'
 import { buildMotionRuntimeScript } from '../src/shared/motion-runtime.ts'
@@ -73,7 +74,7 @@ describe('R5-2 visual corrections', () => {
 describe('resident prompt trim', () => {
   it('resident prompt stays short; host CSS answers common token guesses', async () => {
     const { GENUI_SECTION_TEXT } = await import('../src/plugin/section-text.ts')
-    expect(GENUI_SECTION_TEXT.length).toBeLessThan(3600)
+    expect(GENUI_SECTION_TEXT.length).toBeLessThan(RESIDENT_PROMPT_BUDGET)
     expect(GENUI_SECTION_TEXT).toContain('use them for layout')
     expect(GENUI_SECTION_TEXT).toContain('[iui-current-page]')
     const css = buildHostKitCss()

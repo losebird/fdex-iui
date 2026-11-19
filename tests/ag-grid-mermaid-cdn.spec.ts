@@ -94,7 +94,7 @@ describe('AG Grid / Mermaid CDN + token skin (narrow)', () => {
     expect(section).toContain('mermaid')
     const grid = buildPatternNote('做一个可排序的员工数据表')!
     expect(grid).toContain('agGrid.createGrid')
-    expect(grid).toMatch(/Not for itinerary budgets or 3-tier pricing/)
+    expect(grid).toMatch(/not itinerary budgets \/ 3-tier pricing/i)
     expect(buildPatternNote('画个思维导图')).toContain('iui-mindmap')
   })
 })

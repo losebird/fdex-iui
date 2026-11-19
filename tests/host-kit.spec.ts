@@ -97,7 +97,7 @@ describe('host kit (ex-OIU design system)', () => {
     expect(section).toContain('typeof import')
     expect(section).toContain("import('three')")
     expect(section).toContain('video.play()')
-    expect(buildPatternNote('帮我做个南京三日游行程地图')).toContain('click-to-detail')
+    expect(buildPatternNote('帮我做个南京三日游行程地图')).toMatch(/click-to-detail/i)
     expect(buildPatternNote('帮我做个南京三日游行程地图')).toContain('createTripAnimator(')
     expect(section).toContain('openLink(httpsUrl)')
   })

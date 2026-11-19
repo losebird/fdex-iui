@@ -1,6 +1,7 @@
 // F23: focus ring, reduced motion, 32px targets, prominent primary actions, and
 // keyboard activation for author-built click targets (browser-verified in
 // scripts/browser-e2e.mts keyboardAuditCase).
+import { RESIDENT_PROMPT_BUDGET } from './prompt-budget.ts'
 import { describe, expect, it } from 'vitest'
 import { HOST_A11Y_CSS, buildHostKitCss } from '../src/themes/host-kit.ts'
 import { buildHtmlSandboxSrcdoc, buildSandboxBridgeScript } from '../src/shared/html-sandbox.ts'
@@ -59,6 +60,6 @@ describe('F23 prompt', () => {
   it('asks for one primary action in an .iui-actions footer and real buttons', () => {
     expect(GENUI_SECTION_TEXT).toContain('`.iui-actions` footer')
     expect(GENUI_SECTION_TEXT).toContain('iuiSandbox.reducedMotion')
-    expect(GENUI_SECTION_TEXT.length).toBeLessThan(3600)
+    expect(GENUI_SECTION_TEXT.length).toBeLessThan(RESIDENT_PROMPT_BUDGET)
   })
 })
