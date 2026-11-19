@@ -43,16 +43,19 @@ jobs:
         run: |
           set -euo pipefail
           VERSION=$(node -p "require('./package.json').version")
-          NOTES="Prebuilt @losebird/iui ${VERSION} (lib/ included).
+          cat > release-notes.md <<'EOF'
+          Prebuilt @losebird/iui __VERSION__ (lib/ included).
 
-Install:
+          Install:
 
-\`\`\`bash
-dsh plugin --profile web add https://github.com/losebird/IUI/releases/latest/download/losebird-iui.tgz
-dsh web
-\`\`\`
+          ```bash
+          dsh plugin --profile web add https://github.com/losebird/fdex-iui/releases/latest/download/losebird-iui.tgz
+          dsh web
+          ```
 
-Do not use \`github:losebird/IUI\` — that clones the source tree and can sit on downloaded 0 while prepack builds."
+          Do not use `github:losebird/fdex-iui` — that clones the source tree and can sit on downloaded 0 while prepack builds.
+          EOF
+          sed -i "s/__VERSION__/${VERSION}/" release-notes.md
           if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
             gh release upload "$GITHUB_REF_NAME" \
               "losebird-iui-${VERSION}.tgz" \
@@ -63,5 +66,5 @@ Do not use \`github:losebird/IUI\` — that clones the source tree and can sit o
               "losebird-iui-${VERSION}.tgz" \
               losebird-iui.tgz \
               --title "IUI ${VERSION}" \
-              --notes "$NOTES"
+              --notes-file release-notes.md
           fi

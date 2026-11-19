@@ -469,7 +469,7 @@ const STRONG_UI_ASK =
 const UI_VERB = '给我[一个张份幅]|做|画|生成|制作|创建|设计|搭|弄|来[一个张份]|整[一个个]|展示|显示|呈现|给我看|make|build|create|draw|design|generate|render|show'
 /** Things that are pages / visuals, not prose. */
 const UI_ARTIFACT =
-  '可视化|看板|仪表盘|驾驶舱|地图|计算器|图表|折线|柱状|饼图|曲线|界面|页面|网页|卡片|组件|小工具|表单|问卷|动画|游戏|小游戏|模拟器|仿真|番茄钟|计时器|倒计时|转盘|抽奖|时间线|行程|日程|攻略|食谱|菜单|课表|日历|清单|报表|表格|明细表|数据表|汇总表|对照表|海报|demo|dashboard|chart|map|calculator|widget|page|\\bui\\b|form|diagram|timeline|脑图|思维导图|流程图|甘特图'
+  '可视化|看板|仪表盘|驾驶舱|地图|计算器|图表|折线|柱状|饼图|曲线|界面|页面|网页|卡片|对比卡|信息卡|说明书|组件|小工具|表单|问卷|动画|游戏|小游戏|模拟器|仿真|番茄钟|计时器|倒计时|转盘|抽奖|时间线|行程|日程|攻略|食谱|菜单|课表|日历|清单|报表|表格|明细表|数据表|汇总表|对照表|海报|demo|dashboard|chart|map|calculator|widget|page|\\bui\\b|form|diagram|timeline|脑图|思维导图|流程图|甘特图'
 const VERB_THEN_ARTIFACT = new RegExp(`(?:${UI_VERB}).{0,24}?(?:${UI_ARTIFACT})`, 'iu')
 /** "把今日菜单给我看看 / 地图给我" — artifact first, then hand it over. */
 const ARTIFACT_THEN_SHOW = new RegExp(`(?:${UI_ARTIFACT}).{0,6}?给我(?:看|瞧)?`, 'iu')

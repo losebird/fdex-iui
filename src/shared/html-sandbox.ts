@@ -4920,7 +4920,9 @@ function buildMermaidGuardScript(): string {
     var nodes = [];
     document.querySelectorAll('.mermaid, .iui-mindmap').forEach(function (el) {
       if (!__iuiIsMermaidSource(el)) return;
-      if (!el.classList.contains('iui-mindmap')) el.classList.add('iui-mindmap');
+      // Box only old Mermaid mind maps. Flowchart / sequence stay flat inside their card; tagging them
+      // here raced the author's own mermaid.run() (whichever ran first decided the look).
+      if (!el.classList.contains('iui-mindmap') && /^\s*mindmap\b/.test(el.textContent || '')) el.classList.add('iui-mindmap');
       nodes.push(el);
     });
     if (nodes.length) { try { var pr = m.run({ nodes: nodes }); if (pr && pr.then) pr.then(fitNarrow, fitNarrow); } catch (e) {} }

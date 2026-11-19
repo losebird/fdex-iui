@@ -3,6 +3,7 @@
  * ECharts theming guards), G5 (state classes), G6 (slim prompt + pattern notes),
  * G8 (map gestures).
  */
+import { RESIDENT_PROMPT_BUDGET } from './prompt-budget.ts'
 import { describe, expect, it } from 'vitest'
 import { contrastRatio, deriveAccentSet, normalizeAccent, pageAccentCss } from '../src/shared/page-accent.ts'
 import { buildHtmlSandboxSrcdoc, parseHtmlSandboxFence } from '../src/shared/html-sandbox.ts'
@@ -100,7 +101,7 @@ describe('G1 / G5 / G8 CSS', () => {
 
 describe('G6 slim prompt + pattern notes', () => {
   it('resident section is short and carries the 7 design principles', () => {
-    expect(GENUI_SECTION_TEXT.length).toBeLessThan(3600)
+    expect(GENUI_SECTION_TEXT.length).toBeLessThan(RESIDENT_PROMPT_BUDGET)
     expect(GENUI_SECTION_TEXT).toContain('accent:')
     expect(GENUI_SECTION_TEXT).toContain('.iui-empty')
     expect(GENUI_SECTION_TEXT).toContain('[iui-pattern]')
